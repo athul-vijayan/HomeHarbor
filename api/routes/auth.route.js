@@ -1,11 +1,10 @@
 import express from 'express'
-import { signin, signup } from '../controllers/auth.controller.js'
+import { googleSignIn, signin, signup } from '../controllers/auth.controller.js'
 
 
 const authRouter=express.Router()
 
 authRouter.post('/signup', signup)
 authRouter.post('/signin', signin)
-authRouter.get('/signup', (req, res)=>{res.json({message: 'signup roter working'})})
-
+authRouter.post('/google',googleSignIn)
 export default authRouter

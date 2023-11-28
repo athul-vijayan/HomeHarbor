@@ -15,6 +15,11 @@ const userSchema = mongoose.Schema(
         password:{
             type: String,
             required: true,
+        },
+        avatar:{
+            type:String,
+            default:"https://upload.wikimedia.org/wikipedia/commons/c/c4/Official_Photograph_of_Prime_Minister_Narendra_Modi_Portrait.png"
+            
         }
     }, {timestamps : true}
 )
