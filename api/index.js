@@ -33,6 +33,7 @@ app.use((err, req, res, next)=>{
         success: false,
         statusCode,
         message,
-        message1:'from index.js err handler'
+        message1:'from index.js err handler',
+        err
     })
 })
