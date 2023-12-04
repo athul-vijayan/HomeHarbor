@@ -10,7 +10,10 @@ export default function ContactLandlord({listing}) {
         try {
             const res = await fetch(`/api/user/${listing.userRef}`)
             const data= await res.json()
-            setLandlord(data)
+            console.log(data, 'data');
+            const landlordName=data.username[0].toUpperCase()+data.username.slice(1).toLowerCase()
+            setLandlord(landlordName)
+
         } catch (error) {
             console.log(error);
         }
@@ -18,22 +21,18 @@ export default function ContactLandlord({listing}) {
 
     useEffect(()=>{
         fetchLandLord()
-    },[listing.userRef])
-
-    const landlordName=landlord.username[0].toUpperCase()+landlord.username.slice(1).toLowerCase()
-
-    // useEffect(fetchLandLord,[listing.userRef])
+    },[listing.userRef, ])
 
   return (
     <div>
         {
-            landlord && (
+            landlord  && (
                 <div className="flex flex-col gap-2">
                     <p>Contact {' '}
                     {
                         
                     }
-                        <span className='font-semibold'>{landlordName}</span>
+                        <span className='font-semibold'>{landlord}</span>
                         {' '}for{' '}
                         <span className="font-semibold">{listing.name.toLowerCase()}</span>
 
